@@ -1,0 +1,22 @@
+name: "Set up Field Day Git Options"
+author: Luke Swanson
+description: "This action sets the name and email for a git config, and turns off pull rebases by default."
+branding:
+  icon: 'git-pull-request'
+  color: 'blue'
+inputs:
+  username:
+    description: "The username for git commits."
+    required: true
+  email:
+    description: "The email address for git commits."
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Configure Git User
+    run: |
+      git config --global user.name '${{ inputs.username }}'
+      git config --global user.email '${{ inputs.email }}'
+      git config --global pull.rebase false
+      
