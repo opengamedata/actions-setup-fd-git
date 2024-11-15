@@ -15,8 +15,9 @@ runs:
   using: "composite"
   steps:
     - name: Configure Git User
-    run: |
-      git config --global user.name '${{ inputs.username }}'
-      git config --global user.email '${{ inputs.email }}'
-      git config --global pull.rebase false
+      run: |
+        git config --global user.name '${{ inputs.username }}'
+        git config --global user.email '${{ inputs.email }}'
+        git config --global pull.rebase false
+      shell: bash
       
